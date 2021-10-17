@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // babel是一個js的編譯器
+        // 能夠把es6語法轉換為es5語法, 給其他低級瀏覽器 理解
+        // https://www.bilibili.com/video/BV1uK411H7on?p=46
+        // 1.先安裝 babel-cli babel-preset-env browerify(webpack)
+        // npm i babel-cli babel-preset-env    (browerify -D)
+        // npm install -g browserify
+
+        // 2. 使用babel代碼轉換
+        // 在terminal中 輸入
+        // (npx) babel (被轉換的js文件地址) -d dist/js --preset=babel-preset-env
+
+        // 3.打包npx browerify dist/js/98_app.js -o dist/bundle.js
+    </script>
+    <script type="module" src="dist/bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: grey;
+        }
+        
+        .right {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="uname"> <span>請輸入用戶名</span>
+    <script>
+        var uname = document.querySelector('.uname');
+        var span = document.querySelector('span');
+        var regExp = /^[a-zA-Z0-9_-]{6,16}$/;
+        uname.onblur = function() {
+            if (regExp.test(this.value)) {
+
+                // span.className = 'right';
+                span.classList.remove("wrong");
+                span.classList.add("right");
+                span.innerHTML = '用戶名輸入正確';
+            } else {
+                // console.log('false');
+                span.className = 'wrong';
+                span.innerHTML = '用戶名輸入格式錯誤{6,16}';
+            }
+        };
+    </script>
+</body>
+
+</html>

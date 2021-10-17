@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="message"></textarea> <button>提交</button>
+    <div></div>
+    <script>
+        // replace str
+        var str = 'andy和red';
+        var newStr = str.replace('andy', 'baby');
+        var newStr2 = str.replace(/andy/, '****');
+        console.log(newStr);
+        console.log(newStr2);
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function() {
+
+            div.innerHTML = text.value.replace(/激情/g, '**');
+        }
+    </script>
+</body>
+
+</html>

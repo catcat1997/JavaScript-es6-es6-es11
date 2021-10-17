@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+
+        }
+        // Star.prototype.sing = function() {
+        //     console.log(this.uname + '唱歌');
+        // };
+        // Star.prototype.movie = function() {
+        //     console.log(this.uname + '演電影');
+        // };
+        // 行多情況下,我們需要手動利用constructor 這個屬性指回 回來的構造函數
+
+        // 利用對象字面量, 但是會複蓋走prototype和__proto__內的constructor, 所以我們要手動利用constructor指回來
+        Star.prototype = {
+            // 手動constructor 指回 構造函數本身。
+            constructor: Star,
+            sing: function() {
+                console.log(this.uname + '唱歌');
+            },
+            movie: function() {
+                console.log(this.uname + '演電影');
+            }
+        };
+
+
+        var peter = new Star("peter", 18);
+        var mary = new Star("mary", 24);
+        peter.sing();
+        console.log(peter.__proto__ === Star.prototype);
+        // 對象的__proto__ 與 構造函數的prototype 是同一個內存地址的東西
+        // 對象內如果有__proto__的方法 它就會去構造函數的prototype身上查找 這個方法
+        console.log('************');
+        // 對象原型__proto 和原型對象 prototype 內都有一個constructor 屬性,它指回構造函數本身。
+        console.log(Star.prototype);
+        console.log(peter.__proto__);
+        console.log(peter);
+        console.log(Star.prototype.constructor);
+        console.log('************');
+        // 行多情況下,我們需要手動利用constructor 這個屬性指回 回來的構造函數
+    </script>
+</body>
+
+</html>

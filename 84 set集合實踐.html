@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        // 1. 數組去重
+        let res1 = [...new Set(arr)];
+        // 集合沒有重複性, 所以會自動去除重複的值。
+        console.log(res1);
+
+        // 2.交集  利用filter和has
+        let arr2 = [4, 5, 6, 5, 6];
+        let res2 = [...new Set(arr2)];
+        console.log(res2);
+        // 利用filter和has
+        let res3 = res1.filter(item => {
+            let s2 = new Set(arr2); // 4 5 6
+            if (s2.has(item)) {
+                return item;
+                // return true; 也可
+            };
+        });
+
+        console.log(res3);
+        // 3.并集
+
+        let res4 = new Set([...arr, ...arr2]);
+        console.log(res4);
+        // 4.差集 (差集要看誰是主體)
+        let diff = [...new Set(arr)].filter(item => {
+            if (!new Set(arr2).has(item)) {
+                return true;
+            }
+        });
+        console.log(diff);
+    </script>
+</body>
+
+</html>

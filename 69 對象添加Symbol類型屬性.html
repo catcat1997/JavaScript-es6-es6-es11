@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 向對象中添加方法 up down
+        let game = {
+            name: 'tetris',
+
+        }
+        let methods = {
+            up: Symbol(),
+            down: Symbol(),
+        }
+        game[methods.up] = function() {
+            console.log('i can go up');
+        }
+        game[methods.down] = function() {
+            console.log('i can go down');
+        }
+        console.log(game);
+        // game2
+        let game2 = {
+            name: 'game2',
+            [Symbol('say')]: function() {
+                console.log('我可以說話!');
+            },
+            [Symbol('explo')]: function() {
+                console.log('我可以自爆!');
+            },
+
+        };
+        console.log(game2);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a;
+        let b, c, d;
+        // 聲明同時賦值(初始化)
+        let e = 100;
+        let f = 521,
+            g = 'i love you',
+            h = [];
+        // 1.let 變量不能重複聲明 (可理解為 strict mode)   但var 可以(不夠嚴格)
+        var gg = 1;
+        var gg = 2;
+        let ggc = 3;
+        // 2.塊級作用域(只在代碼塊內有效) 全局,函數,eval
+        // if else while for 內的{}都是塊級作用域
+        {
+            let girl = 'BBchan';
+        }
+        // console.log(girl);  // 報錯, 無法調用girl
+        // 3. let 沒有變量提升
+        console.log(song);
+        var song = 'SSoonngg'; // var變量提升,使在代碼最上方 var song;  所以song 是undefined
+        // console.log(songlet); // 會直接報錯, 不能在沒有聲明時 調用
+        let songlet = 'songlet';
+
+        // 4.不影響作用域鏈 (是塊級作用域, 但不影響作用域鏈)
+        {
+            let school = 'school';
+
+            function fn() {
+                console.log(school); //可以調用school
+            }
+            fn();
+        }
+    </script>
+</body>
+
+</html>

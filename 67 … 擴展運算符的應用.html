@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 1.數組的合并
+        const s1 = ['小明', '大王'];
+        const s2 = ['阿花', '張三'];
+
+        // 利用concat 合并數組
+        const s3 = s1.concat(s2);
+        console.log(s3);
+
+        // 利用 擴展運算符... 合并數組 (可以多組合并)
+        const s4 = [...s1, ...s2];
+        console.log(s4);
+
+        // 2.數組的copy   如果有引用類型數據,還是淺拷貝
+        const s5 = [1, 2, 3];
+        const s6 = [...s5];
+        s6[0] = 0;
+        console.log(s5);
+        console.log(s6);
+        // 引用數據類型  淺拷貝
+        const s7 = [
+            [1, 2], 2, 3
+        ];
+        const s8 = [...s7];
+        // s7[0] = 0; // 把引用數據類型 直接改成 基本數據類型 Number 
+        // s7[0][0] = 0; // 引用數據類型改變   淺拷貝
+        // s8[0][0] = 0;  // 引用數據類型改變   淺拷貝
+        console.log(s7);
+        console.log(s8);
+
+        const divs = document.querySelectorAll('div');
+        console.log(divs);
+        const divArr = [...divs];
+        console.log(divArr);
+    </script>
+</body>
+
+</html>

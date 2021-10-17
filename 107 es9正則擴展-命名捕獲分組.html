@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 聲明一個字符串
+        let str = '<a href="http://www.google.com">google.com</a>';
+
+        // 提取url與 標簽文本
+        const reg = /<a href="(.*)">(.*)<\/a>/;
+
+        // 執行
+        const result = reg.exec(str);
+        console.log(result);
+
+
+        // 命名捕獲 + 分組
+        let str2 = '<a href="http://www.google.com">google.com</a>';
+        const reg2 = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+        const result2 = reg2.exec(str2);
+        console.log(result2);
+        console.log(result2.groups.text);
+        console.log(result2.groups.url);
+
+
+        // MDN說明用法
+        const regex1 = RegExp('foo*', 'g');
+        const str1 = 'table football, foosball';
+        let array1;
+
+        while ((array1 = regex1.exec(str1)) !== null) {
+            console.log(`Found ${array1[0]}. Next starts at ${regex1.lastIndex}.`);
+            // expected output: "Found foo. Next starts at 9."
+            // expected output: "Found foo. Next starts at 19."
+        }
+    </script>
+</body>
+
+</html>

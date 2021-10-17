@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.keys(obj) 用於獲取對象自身所有的屬性  取鍵 不取值
+        var data = {
+            id: 1,
+            pname: 'apple',
+            price: 1999,
+            num: 2000,
+        };
+        var new_data = [];
+        console.log('for (var prop in data)');
+        for (var prop in data) {
+            console.log(prop + ' : ' + data[prop]);
+            // new_data.push(prop + ':' + data[prop]);
+        };
+        console.log(new_data);
+
+        // Object.keys()方法
+        console.log('Object.keys(data)');
+        var arr = Object.keys(data);
+        console.log(arr);
+        arr.forEach(function(value) {
+            console.log(value);
+        });
+        // console.log(data);
+    </script>
+</body>
+
+</html>

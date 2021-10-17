@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = {
+
+            afn1: function() {
+                var a1 = 3;
+                var afn2 = function() {
+                    return a1 + 2;
+                }
+                return {
+                    a1,
+                    afn2
+                };
+            }
+        };
+        console.log(a.afn1().afn2());
+    </script>
+</body>
+
+</html>

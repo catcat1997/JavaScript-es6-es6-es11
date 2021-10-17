@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Phone {
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+
+            }
+
+            // 父類的成員屬性
+            call() {
+                console.log('打電話');
+            }
+        }
+        // extends 繼承
+        class SmartPhone extends Phone {
+            constructor(brand, price, color, size) {
+                //// super 用於訪問和調用對象父類上的函數, 可調用父類的構造函數,也可以調用父類的普通函數
+                super(brand, price); // 同於Phone.call(this,brand,price);
+                this.color = color;
+                this.size = size;
+            }
+            photo() {
+                console.log('拍照');
+            }
+        }
+        const sp = new SmartPhone('sp', 588, 'red', 5.5);
+        console.log(sp);
+    </script>
+</body>
+
+</html>

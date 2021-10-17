@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函數定義
+        //  1.自定義函數 function 命名函數()
+        function fn1() {
+            console.log('fn1');
+        };
+        //  2.函數表達式 (匿名函數)
+        var fn2 = function() {
+            console.log("fn2");
+        };
+        //  3. 利用new Function('參數1','參數2','函數體')    F是大寫的, 構造函數形的定義函數
+        var fn3 = new Function('console.log("fn3")')
+        var fn4 = new Function('a', 'b', 'console.log(a + b)');
+        fn1();
+        fn2();
+        fn3();
+        fn4(1, 2);
+        //  所有函數都是 Function 的實例(對象)
+        console.dir(fn3);
+        // dir 可以顯示一個對象所有屬性和方法
+        console.log(fn3 instanceof Object);
+        // 檢測fn3 是不是 Object  (instanceof 檢測 左面 屬不屬於 右面)
+    </script>
+</body>
+
+</html>

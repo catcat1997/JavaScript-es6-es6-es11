@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        h4 {
+            width: 100px;
+            display: block;
+            margin: 50px auto 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .tabbox {
+            width: 800px;
+            margin: 50px auto;
+            box-sizing: border-box;
+        }
+        
+        .firstnav {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-right: 5px;
+        }
+        
+        .firstnav ul {
+            display: flex;
+        }
+        
+        .firstnav ul li {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        
+        .tabadd {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* 垂直置中 */
+            justify-content: center;
+            /* 水平置中 */
+            cursor: pointer;
+        }
+        
+        .tabcon section {
+            border-top: 0;
+            display: none;
+            border: 1px solid #ccc;
+            border-top: 0;
+        }
+        
+        .tabcon .conactive {
+            display: block;
+            width: 800px;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        
+        .liactive {
+            background-color: rgb(255, 119, 119);
+        }
+        
+        .close {
+            width: 15px;
+            height: 15px;
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+    </style>
+    <script src="js/tab.js"></script>
+</head>
+
+<body>
+    <h4>tab欄案例</h4>
+
+    <div class="tabbox" id="tab">
+        <!-- tab 標簽 -->
+        <nav class="firstnav">
+            <ul>
+                <li class="liactive"><span>測試1</span><img src="close.png" alt="" class="close"></li>
+                <li><span>測試2</span><img src="close.png" alt="" class="close"></li>
+                <li><span>測試3</span><img src="close.png" alt="" class="close"></li>
+            </ul>
+            <div class="tabadd">
+                <span>+</span>
+
+            </div>
+        </nav>
+        <!-- tab內容 -->
+        <div class="tabcon">
+            <section class="conactive">測試1</section>
+            <section>測試2</section>
+            <section>測試3</section>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            },
+            color: ['pink', 'red']
+        };
+        var o = {};
+        // 利用遞歸函數 實現深拷貝
+        function deepCopy(newobj, oldobj) {
+            for (var k in oldobj) {
+                // 判斷我們的屬性值 屬於那種數據類型
+                // 1.獲取屬性值 oldobj[k]
+                var item = oldobj[k];
+
+                // 2.判斷 是否為數組
+                if (item instanceof Array) { // Array也屬於Object 所以if要先判斷Array
+                    newobj[k] = [];
+                    deepCopy(newobj[k], item);
+                } else if (item instanceof Object) {
+                    // 3.判斷 是否為對象
+                    newobj[k] = {};
+                    deepCopy(newobj[k], item);
+                } else {
+                    // 4.屬於簡單數據類型   
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(o, obj);
+        o.msg.age = 30;
+        console.log(o);
+        console.log(obj);
+    </script>
+</body>
+
+</html>

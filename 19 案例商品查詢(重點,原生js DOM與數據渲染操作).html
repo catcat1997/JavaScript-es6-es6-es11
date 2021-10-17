@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        
+        .search {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        按照價格查詢: <input type="text" class="start"> - <input type="text" class="end"><button class="search-price">搜索</button> 按照商品名稱查詢: <input type="text" class="product"> <button class="search-pro">查詢</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>商品名稱</th>
+                <th>價格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>小米</td>
+                <td>3999</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>oppo</td>
+                <td>999</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>apple</td>
+                <td>7299</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>華為</td>
+                <td>1999</td>
+            </tr> -->
+        </tbody>
+    </table>
+    <script>
+        // 利用新增數組方法操作數據
+        var data = [{
+            id: 1,
+            pname: '小米',
+            price: 3999
+        }, {
+            id: 2,
+            pname: 'oppo',
+            price: 999
+        }, {
+            id: 3,
+            pname: 'apple',
+            price: 7299
+        }, {
+            id: 4,
+            pname: '華為',
+            price: 1999
+        }];
+        var tbody = document.querySelector('tbody');
+        var search_price = document.querySelector('.search-price');
+        var start = document.querySelector('.start');
+        var end = document.querySelector('.end');
+        var product = document.querySelector('.product');
+        var search_pro = document.querySelector('.search-pro');
+
+
+        setData(data); // 一開網頁先調用渲染一次
+
+        function setData(mydata) {
+            // 先清空tbody原來數據
+            tbody.innerHTML = '';
+            mydata.forEach(function(value, index) {
+                var tr = document.createElement('tr');
+                tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+                tbody.appendChild(tr);
+            });
+
+        }
+        // 根據price range 查詢  用forEach
+
+        search_price.addEventListener('click', function() {
+            var newData = data.filter(function(value, index) {
+                return value.price >= start.value && value.price <= end.value;
+            });
+            // console.log(newData);
+            // 渲染
+            setData(newData);
+            if (end.value == '') {
+                tbody.innerHTML = '';
+                data.forEach(function(value, index) {
+                    var tr = document.createElement('tr');
+                    tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+                    tbody.appendChild(tr);
+                });
+            }
+        });
+
+        // 根據商品名 查詢 用some()  or filter
+        search_pro.addEventListener('click', function() {
+            var arr = [];
+            data.filter(function(value) {
+                if (value.pname === product.value) {
+                    // console.log(value);
+                    arr.push(value);
+                    return true;
+                }
+
+            });
+            setData(arr);
+            if (product.value == '') {
+                tbody.innerHTML = '';
+                data.forEach(function(value, index) {
+                    var tr = document.createElement('tr');
+                    tr.innerHTML = '<td>' + value.id + '</td><td>' + value.pname + '</td><td>' + value.price + '</td>';
+                    tbody.appendChild(tr);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

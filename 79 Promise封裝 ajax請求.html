@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // api 地址 https://api.apiopen.top/getJoke
+        // 封裝 ajax請求
+
+        const p = new Promise((resolve, reject) => {
+            // 1.創建對象
+            const xhr = new XMLHttpRequest();
+
+            // 2.初始化
+            xhr.open("GET", 'https://api.apiopen.top/getJoke');
+
+            // 3.發送
+            xhr.send();
+
+            // 4.綁定事件, 處理響應結果
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    //  判斷響應狀態碼 200-299 成功
+                    if (xhr.status >= 200 && xhr.status <= 299) {
+                        // 表示成功
+                        resolve(xhr.response);
+                    } else {
+                        // 表示失敗
+                        reject(xhr.status);
+                    }
+                }
+            };
+        });
+
+        // 指定回調
+        p.then(function(value) {
+            console.log(value);
+        }, function(reason) {
+            console.error(reason);
+        });
+
+        // 原寫法
+        // // 1.創建對象
+        // const xhr = new XMLHttpRequest();
+
+        // // 2.初始化
+        // xhr.open("GET", 'https://api.apiopen.top/getJoke');
+
+        // // 3.發送
+        // xhr.send();
+
+        // // 4.綁定事件, 處理響應結果
+        // xhr.onreadystatechange = function() {
+        //     if (xhr.readyState === 4) {
+        //         //  判斷響應狀態碼 200-299 成功
+        //         if (xhr.status >= 200 && xhr.status <= 299) {
+        //             // 表示成功
+        //             console.log(xhr.response);
+        //         } else {
+        //             // 表示失敗
+        //             console.error(xhr.status);
+        //         }
+        //     }
+        // };
+    </script>
+</body>
+
+</html>

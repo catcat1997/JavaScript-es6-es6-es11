@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // catch用來 指定 失敗時的回調
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // 設置p 對象的狀態為失敗, 并設置失敗的值
+                reject('出錯啦!');
+                // resolve('success 200!');
+            }, 1000);
+        });
+
+        // then方法
+        // p.then(function(value) {
+        //     console.log(value);
+        // }, function(reason) {
+        //     console.error(reason);
+        // });
+
+        //  catch方法  (可以沒有then 的第一個參數 成功時的 function(value){...})
+        p.catch(function(reason) {
+            console.warn(reason);
+        });
+    </script>
+</body>
+
+</html>

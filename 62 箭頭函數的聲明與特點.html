@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6 可以用箭頭 (=>) 定義函數
+        let fn = function() {
+
+        };
+        // 箭頭 (=>) 定義函數 聲明一個函數
+        // let fn2 = (a, b) => {
+        //     return a + b;
+        // }
+        // console.log(fn2(3, 5));
+
+        // 1. this 是靜態的  箭頭函數this始終指向函數聲明時{所在作用域}下的 this的值
+        function getName() {
+            console.log(this.name);
+        }
+        let getName2 = () => {
+            console.log(this.name);
+        }
+
+        // 設置window對象的name屬性
+        window.name = 'window下的name';
+        const SCHOOL = {
+            name: 'school下的name'
+        };
+        // 直接調用
+        getName();
+        getName2();
+        // call方法調用
+        getName.call(SCHOOL);
+        getName2.call(SCHOOL); // 箭頭函數無法改變this指向 (this是靜態的,無法改指向)
+        // 2.不能作為構造函數 實例化對象 
+        // let Person = (name, age) => {
+        //     this.name = name;
+        //     this.age = age;
+        // };   會報錯
+        // let me = new Person('peter', 18);
+        // console.log(me);
+
+        // 3.箭頭函數 不能使用arguments 變量
+        // let fn3 = () => {
+        //     console.log(arguments);
+        // }
+        // fn3(1, 2, 3);
+
+
+        // 4.箭頭函數 簡寫
+        //      4.1 省略小括號, 當形參只有一個時
+        let add = n => {
+            return n + n;
+        }
+        console.log(add(5));
+        //      4.2 省略大括號(花括號), 當代碼體只有一條語句時 , return也必須省略, 而且語句的執 行結果就是函數的返回值
+        let pow = (n) => n * n;
+        console.log(pow(9));
+    </script>
+</body>
+
+</html>

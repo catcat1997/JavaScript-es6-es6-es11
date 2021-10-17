@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ... 擴展運算符能將 [數組] 轉換為 ,逗號分隔的 [參數序列]
+        // 聲明一個數組
+        const tfboys = ['王木', '李四', '張三'];
+
+        // 聲明一個函數
+        function show() {
+            console.log(arguments);
+        }
+
+        show(tfboys); // 一個數組類型的參數 數組內數組
+        show(...tfboys); // => show('王木','李四','張三'); 一個參數分成了三個參數
+    </script>
+</body>
+
+</html>

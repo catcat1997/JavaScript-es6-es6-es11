@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Star {
+
+        }
+        // 類的本質 函數function
+        console.log(typeof Star);
+        // 1類和構造函數 都有 原型對象prototype
+        console.log(Star.prototype);
+        // 2類和構造函數 的prototype 里面都有一個constructor 指向自己本身
+        console.log(Star.prototype.constructor);
+        // 3類和構造函數 都可以通過原型對象添加方法 
+        Star.prototype.sing = function() {
+            console.log('sing');
+        }
+        var peter = new Star();
+        // 4類和構造函數 創建實例對象有 __proto__ 指向 類/構造函數的原型對象prototype
+        console.dir(peter);
+        console.log(peter.__proto__ === Star.prototype);
+    </script>
+</body>
+
+</html>

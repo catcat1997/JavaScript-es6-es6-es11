@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 量詞符: 用來設定某個模式出現的次數
+        // 簡單理解: 就是讓下面的 a 這個字符重複出現多少次
+
+        // * 相當於 >=0 可出現0次或多次   *號放在目標後面
+        var reg = /^a*$/;
+        console.log(reg.test(''));
+        console.log(reg.test('b'));
+        console.log(reg.test('aaa'));
+        console.log(reg.test('ab'));
+        console.log('-----------------');
+        // + 相當於 >=1 可出現1次或多次
+        var reg2 = /^a+$/;
+        console.log(reg2.test(''));
+        console.log(reg2.test('b'));
+        console.log(reg2.test('a'));
+        console.log(reg2.test('aaa'));
+        console.log(reg2.test('ab'));
+        console.log('-----------------');
+        // ? 相當於 1 || 0 可出現 0次或1次
+        var reg3 = /^a?$/;
+        console.log(reg3.test(''));
+        console.log(reg3.test('b'));
+        console.log(reg3.test('a'));
+        console.log(reg3.test('aaa'));
+        console.log(reg3.test('ab'));
+        console.log('-----------------');
+        // {n } 重複n次
+        var reg4 = /^a{3}$/; // 只有3個a 是true
+        console.log(reg4.test(''));
+        console.log(reg4.test('b'));
+        console.log(reg4.test('a'));
+        console.log(reg4.test('aaa'));
+        console.log(reg4.test('aaab'));
+        console.log('-----------------');
+        // {n, } 大於等於3次
+        var reg5 = /^a{3,}$/;
+        console.log(reg5.test(''));
+        console.log(reg5.test('b'));
+        console.log(reg5.test('a'));
+        console.log(reg5.test('aaa'));
+        console.log(reg5.test('aaaaa'));
+        console.log(reg5.test('aaab'));
+        console.log('-----------------');
+        // {n,m} 大於等於2次 并 小於等於m次
+        var reg6 = /^a{3,5}$/;
+        console.log(reg6.test(''));
+        console.log(reg6.test('b'));
+        console.log(reg6.test('a'));
+        console.log(reg6.test('aaa'));
+        console.log(reg6.test('aaaaa'));
+        console.log(reg6.test('aaaaaaa'));
+        console.log('-----------------');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 打車起步價13$ ,之後每公里5$  用戶輸入公里數就可計算出車價
+        // 如果有擁擠情況,總價格多收取10$
+        // function fn(){};
+        // fn();
+        // 用立即執行函數,就不用調用了
+        var car = (function() {
+            var start = 13; // 局部變量, 閉包發生, 下面的function用了start和total變量
+            var total = 0;
+            return {
+                price: function(n) {
+                    if (n <= 3) {
+                        total = start;
+                    } else {
+                        total = start + (n - 3) * 5
+                    }
+                    return total;
+                }, //正常價
+                crowded: function(flag) {
+
+                        return flag ? total + 10 : total;;
+                    } //擁擠價
+            }
+        })();
+        // car內的price函數和crowded函數 所以是car.price(x),price函數本身有參數   car本身是一個立即執行函數
+        console.log(car.price(5));
+        console.log(car.crowded(true));
+        console.log(car.crowded(false));
+        console.log(car.price(3));
+        console.log(car.crowded(true));
+    </script>
+</body>
+
+</html>

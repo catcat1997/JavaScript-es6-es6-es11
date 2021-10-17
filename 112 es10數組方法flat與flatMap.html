@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 將多維數組 轉化為 低位數組 (降一維)
+        const arr = [
+            [1, 2], 3, 4, [5, 6]
+        ];
+        console.log(arr.flat());
+        const arr2 = [
+            [1, [2]], 3, 4, [5, 6]
+        ];
+        console.log(arr2.flat());
+        // flat()的參數 是深度  降多少維, 默認1
+        console.log(arr2.flat(2)); //三維數組 降到一維數組
+        console.log(arr2.flat(200));
+
+        // flatMap();  幫Map 轉化為更低維的Map  也可以是falt與map 兩種方法的結合
+        const arr3 = [1, 2, 3, 4];
+        const result = arr3.map(item => [item * 10]);
+        const result2 = arr3.flatMap(item => [item * 10]);
+        console.log(result);
+        // const m1 = new Map();
+        // console.log(m1 instanceof Map);
+        console.log(typeof arr3);
+        console.log(typeof result);
+        console.log(result instanceof Map); // false
+        console.log(result instanceof Array);
+        // console.log(arrayObject instanceof result);
+        console.log(result2);
+    </script>
+</body>
+
+</html>

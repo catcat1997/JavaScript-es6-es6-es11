@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #58a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad"></div>
+    <script>
+        // 需求1. 點擊div 2s後顏色變成pink
+        let ad = document.querySelector('#ad');
+        ad.addEventListener('click', function() {
+            setTimeout(() => {
+                // 用this 修改背景顏色
+                // this.style.background = 'pink'; // setTimeout的this是window 我們用箭頭函數解決
+                console.log(this);
+                this.style.background = 'pink'; // 這時this指向ad
+                // 箭頭函數的 this指向 箭頭函數的所在作用域下 setTimeout作用域
+                // function是誰調用 this就指向誰 這時setTimeout是ad調用的
+            }, 2000);
+        });
+        // 需求2. 從數組中返回偶數的元素  (實現簡寫)
+        const arr = [1, 6, 9, 10, 100, 25];
+        // const result = arr.filter(function(item) {
+        //     if (item % 2 === 0) {
+        //         return true;
+        //     }
+        // });
+        const result = arr.filter(item => item % 2 === 0);
+
+        console.log(result);
+
+        // 箭頭函數 適合與 this無關的回調, 定時器, 數組的方法回調
+        // 箭頭函數 不適合與 this有關的回調, 事件回調, 對象的方法
+    </script>
+</body>
+
+</html>

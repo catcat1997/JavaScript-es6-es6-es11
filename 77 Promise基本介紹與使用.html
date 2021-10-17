@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 實例化promise對象
+        // 潛規則: 第一和第二參數會命名為 resolve和reject
+        // 成功是resolve  失敗是reject
+        const p = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                //
+                let data = '數據庫中的用戶數據';
+                resolve(data);
+
+                //
+                let err = '數據讀取失敗'
+                reject(err);
+            }, 1000);
+        });
+        // 調用promise對象的then方法   成功是value 失敗是reason
+        p.then(function(value) {
+            console.log(value);
+        }, function(reason) {
+            console.error(reason);
+        });
+    </script>
+</body>
+
+</html>

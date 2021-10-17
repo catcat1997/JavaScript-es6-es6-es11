@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 1.普通函數
+        function fn1() {
+            console.log('hi~ ');
+        }
+        fn1();
+        fn1.call();
+        // 2.對象的方法
+        var o = {
+            sayHi: function() {
+                console.log('o say hi~');
+            }
+        }
+        o.sayHi();
+        // 3.構造函數
+        function Star(uname) {
+            this.uname = uname;
+        }
+        new Star('peter');
+        // 4.綁定事件函數
+        var btn = document.querySelector('div');
+        btn.onclick = function() {
+            console.log('btn: hi~');
+            clearInterval(timer1);
+        };
+        // 點一下btn就可調用這個函數
+        // 5.定時器函數
+        var timer1 = setInterval(function() {
+            console.log('1秒hi一次');
+        }, 1000);
+        // 6.立即執行函數
+        (function() {
+            console.log('立即執行函數');
+        })();
+        // 立即執行函數是自動調用
+    </script>
+</body>
+
+</html>

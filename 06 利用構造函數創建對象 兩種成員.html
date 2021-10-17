@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.利用new Object() 創建對象
+        var obj1 = new Object();
+        // 2.利用 對象字面量{} 創建對象  *** js最常用
+        var obj2 = {};
+        // 3.利用構造函數創建對象 要和new一起用 (自制的構造函數)   類內的構造函數是contructor
+
+        // 構造函數中的屬性和方法, 都是成員   成員有 1.靜態成員 2.實例成員
+
+
+        // 2.實例成員 就是構造函數內部通過this添加的成員  uname age sing都是實例成員
+        //   實例成員只能通過實例化對象來訪問 比如peter.sing();   peter.uname; 通過實例peter訪問成員
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            this.sing = function() {
+                console.log(this.uname + '唱歌');
+            }
+        }
+
+        var peter = new Star("peter", 18);
+        peter.sing();
+        console.log(peter.uname);
+
+        // 1.靜態成員 在構造函數本身上添加的成員
+        Star.sex = "男";
+        //靜態成員 只能通過構造函數來訪問
+        console.log(Star.sex);
+        console.log(peter.sex); // undefined
+    </script>
+</body>
+
+</html>

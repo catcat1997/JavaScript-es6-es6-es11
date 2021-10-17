@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            this.sing = function() {
+                console.log(this.uname + "唱歌");
+            }
+        }
+        // 把方法放到prototype原型對象內
+        Star.prototype.dance = function() {
+            console.log(this.uname + '跳舞');
+        }
+        var peter = new Star("peter", 18);
+        var mary = new Star("mary", 24);
+        console.log('``````````````````');
+        console.log(peter.sing === mary.sing);
+        // 相同方法,但地址不同
+        console.log(peter.sing() === mary.sing());
+        // true 相同方法
+        console.log('``````````````````');
+        console.log(peter.dance === mary.dance);
+        // 同地址
+        console.log(peter.dance() === mary.dance());
+        // true 相同方法
+
+
+        console.log('``````````````````');
+        console.dir(Star);
+    </script>
+</body>
+
+</html>

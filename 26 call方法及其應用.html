@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o = {
+            name: 'andy'
+        };
+
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        }
+        fn.call();
+        fn.call(o, 1, 2);
+        //  call第一個可以調用函數 第二個可以改變函數內this指向
+        //  call 的主要作用可以實現繼承
+        function Father(uname, age, sex) {
+            this.uname = uname;
+            this.age = age;
+            this.sex = sex;
+        }
+
+        function Son(uname, age, sex) {
+            Father.call(this, uname, age, sex);
+        }
+        var son1 = new Son('peter', 18, '男');
+        console.log(son1);
+    </script>
+</body>
+
+</html>

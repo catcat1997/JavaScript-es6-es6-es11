@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 聲明一個 set
+        let s = new Set();
+        let s2 = new Set(['大事', '小事', '中事', '好事', '大事']);
+        console.log(s, typeof s);
+        console.log(s2);
+        // set.size 元素個數
+        console.log(s2.size);
+        // set.add() 添加新元素   如同Array.push()
+        s2.add('新事');
+        console.log(s2);
+        // set.delete 刪除指定元素
+        s2.delete('中事');
+        console.log(s2);
+        // set.has 檢測是否存在
+        console.log(s2.has('新事'));
+        console.log(s2.has('中事'));
+        // set.clear 清空set集合
+        // s2.clear();
+        console.log(s2);
+
+        // for..of編歷
+        for (let v of s2) {
+            console.log(v);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6允許給函數參數賦值 初始值
+        // 1.形參初始值  具有默認值的參數, 一般規範放後面
+        function add(a, b, c = 10) {
+            return a + b + c;
+        }
+        let result = add(1, 2);
+        console.log(result);
+        // 2.與解構賦值結合
+        // 原本寫法
+        // function connect(options) {
+        //     let host = options.host;
+        //     let username = options.username;
+        // }
+        // 與解構賦值結合寫法
+        function connect({
+            host = '127.0.0.1', // 如果沒有傳host 就給默認值127.0.0.1
+            username,
+            password,
+            port
+        }) {
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        connect({
+            // host: 'google.com',
+            username: 'root',
+            password: 'root',
+            port: 3306
+        })
+    </script>
+</body>
+
+</html>

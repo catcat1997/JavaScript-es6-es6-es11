@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 聲明map
+        let m = new Map();
+
+        // 添加元素
+        m.set('name', '小朋友');
+        m.set('change', function() {
+            console.log('我是改變方法');
+        });
+        console.log(m);
+        let key = {
+            school: 'Myschool'
+        };
+        m.set(key, ['北京', '香港', '上海']);
+        // 這裡 鍵:是 key對象, 值:是3個地點的數組
+        console.log(m);
+        // size 元素個數
+        console.log(m.size);
+        // delete 根據鍵名
+        m.delete('name');
+        console.log(m);
+        // get 返回鍵名對象的鍵值
+        console.log('Map.get()方法');
+        console.log(m.get('change'));
+        console.log(m.get(key));
+
+        // for..of 編歷
+        console.log('以下為for...of');
+        for (let v of m) {
+            console.log(v);
+        }
+
+        // clear清空
+        m.clear();
+        console.log(m);
+    </script>
+</body>
+
+</html>

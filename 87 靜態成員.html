@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Phone() {
+        //     // 函數對象es5
+        // }
+        // Phone.name = '手機';
+        // Phone.change = function() {
+        //     console.log('改變');
+        // }
+        // // name和change 屬於 函數對象的, 而不屬於 實例對象
+        // // name和change是 靜態成員
+
+        // let nokia = new Phone();
+        // // 實例對象無法訪問 靜態成員
+        // console.log(nokia.name);
+
+        // Phone.prototype.size = '5.5inch';
+        // console.log(nokia.size);
+
+        // static 靜態屬性  靜態屬性 屬於類  但不屬於實例對象
+        class Phone {
+            static name = '手機'; // 全局 靜態屬性 等同於Phone.name; 所以實例化對象無法使用
+            static change() {
+                console.log('改變');
+            };
+        }
+        let nokia = new Phone();
+        console.log(nokia.name);
+        console.log(Phone.name);
+    </script>
+</body>
+
+</html>

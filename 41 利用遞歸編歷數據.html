@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var data = [{
+            id: 1,
+            name: '家電',
+            goods: [{
+                id: 11,
+                gname: '冰箱'
+            }, {
+                id: 12,
+                gname: '洗衣機'
+            }]
+        }, {
+            id: 2,
+            name: '服飾'
+        }];
+        // 我們想要 輸入id, 就可以返回的數據對象
+        // 1.利用forEach 編歷里面的每一個對象  (scan整個data數組)
+        function getId(json, id) {
+            var o = {};
+            json.forEach(function(item) { // 用some更高效
+                // console.log(item);
+                if (item.id == id) {
+                    // console.log(item);
+                    o = item;
+                } else if (item.goods && item.goods.length > 0) {
+                    // 如果id為11 12 我們就用遞歸函數
+                    o = getId(item.goods, id);
+                    // 如果這裡只是getId(item.goods, id);
+                    // 遞歸內的o和遞歸外(第一次getId)的o 是不同的
+                    // 除非o 是全局變量
+                    // 同時利用了閉包?
+                }
+
+            });
+            return o;
+        }
+        console.log(getId(data, 1));
+        console.log(getId(data, 2));
+        console.log(getId(data, 12));
+    </script>
+</body>
+
+</html>

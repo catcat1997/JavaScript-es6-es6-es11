@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>apple</li>
+        <li>tofu</li>
+        <li>fish can</li>
+        <li>pig leg</li>
+    </ul>
+    <script>
+        // 閉包應用--點擊li輸出當前的索引號
+        //  1.利用動態添加屬性方式
+        var lis = document.querySelector('.nav').querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) { // for是同步任務  馬上調用
+            lis[i].index = i;
+            lis[i].onclick = function() { // 這個function是異步任務   點擊時才調用 所以log(i)會是 4
+                // console.log(i);
+                // console.log(this.index);
+                console.log(this.index);
+            }
+
+        }
+        // 2.利用閉包的方式得到當前li 的索引號
+        for (var i = 0; i < lis.length; i++) {
+            // 利用for循環 創建4個立即執行函數
+            (function(i) { //立即執行函數  立即執行函數的參數i 會傳遞到這個函數內 
+                lis[i].onclick = function() {
+                    console.log(i);
+                }
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

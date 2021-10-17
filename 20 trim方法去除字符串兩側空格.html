@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text"> <button>click</button>
+    <div></div>
+    <script>
+        var str = '   andy ';
+        var new_str = str.trim();
+        console.log(str);
+        console.log(new_str);
+        var input = document.querySelector('input');
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        btn.onclick = function() {
+            if (input.value.trim() === '') {
+                alert('please enter something!');
+            } else {
+                console.log(input.value.trim());
+                console.log(input.value.trim().length);
+                div.innerHTML = input.value.trim();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // private
+        class Person {
+            // 公有屬性
+            name;
+            // 私有屬性#
+            #age;
+            #weight;
+            //構造函數
+            constructor(name, age, weight) {
+                this.name = name;
+                this.#age = age;
+                this.#weight = weight;
+
+            }
+            intro(){
+                console.log(this.name);
+                console.log(this.#age);
+                console.log(this.#weight);
+                console.log(this.age);
+                console.log(this.weight);
+            }
+            
+        }
+        // 實例化
+        const girl = new Person('小紅', 18, '45kg');
+        console.log(girl);
+        girl.intro();
+        // console.log(girl.name);
+        // console.log(girl.#age);  // 會報錯,不能在類外使用private屬性
+        // console.log(girl.#weight);
+    </script>
+</body>
+
+</html>

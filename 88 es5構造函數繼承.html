@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //手機
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+
+        }
+        Phone.prototype.call = function() {
+            console.log('打電話');
+        }
+
+        // 智能手機
+        function SmartPhone(brand, price, color, size) {
+            Phone.call(this, brand, price); // ***這個寫法同時用了 Phone的brand,price 和 call方法
+            this.color = color;
+            this.size = size;
+
+        }
+        // 設置子級構造函數的原型
+        SmartPhone.prototype = new Phone;
+        SmartPhone.prototype.constructor = SmartPhone; // 修正constructor 不寫也可以.
+
+        // 聲明子類的方法
+        SmartPhone.prototype.photo = function() {
+                console.log('拍照');
+            }
+            // 實例化
+        const apple = new SmartPhone('apple', 4999, 'black', 5.5);
+        console.log(apple);
+    </script>
+</body>
+
+</html>

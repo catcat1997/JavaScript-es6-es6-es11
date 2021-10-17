@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  some()返回值是boolean, 如果滿足條件就true,不滿足就false;
+        //  如果找到第一個滿足條件的元素,則終止循環, 返回true。***
+        var arr = [10, 30, 4];
+        var flag = arr.some(function(value, index, array) {
+            // return value >= 20;
+            return value < 3;
+        });
+        console.log(flag);
+        var arr1 = ['red', 'pink', 'blue'];
+        var flag1 = arr1.some(function(value, index, array) {
+            return value === 'pink';
+        });
+        console.log(flag1);
+    </script>
+</body>
+
+</html>

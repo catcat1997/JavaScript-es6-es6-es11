@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 創建類 class
+        class star {
+            // constructor 類的 構造函數
+            constructor(uname, age) {
+                this.uname = uname;
+                this.age = age;
+            }
+        }
+        // 2. 利用類創建對象 new
+        var test01 = new star('構造函數uname', 18);
+        console.log(test01);
+        console.log(test01.uname);
+        console.log(test01.age);
+    </script>
+</body>
+
+</html>

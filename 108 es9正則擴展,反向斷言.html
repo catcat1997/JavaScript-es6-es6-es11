@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 斷言(?=) (?<=)
+        let str = "JS5211314你知道嗎555啦啦啦";
+        // 正向斷言  提取555
+        // \d 表示數字0-9  ?= 表示判斷
+        const reg = /\d+(?=啦)/;
+        const result = reg.exec(str);
+        console.log(result);
+
+        // 反向斷言   + 重複一次或多次
+        const reg2 = /(?<=嗎)\d+/;
+        const result2 = reg2.exec(str);
+        console.log(result2);
+    </script>
+</body>
+
+</html>

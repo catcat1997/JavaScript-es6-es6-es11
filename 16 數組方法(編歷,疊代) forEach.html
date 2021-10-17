@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 2, 3];
+        var sum = 0;
+        arr.forEach(function(value, index, array) {
+            console.log('每個數組元素' + value);
+            console.log('每個數組的索引' + index);
+            console.log('數組本身' + array); // 和String相加, 所有array成了string
+            console.log(array);
+            sum += value;
+        });
+        console.log(sum);
+    </script>
+</body>
+
+</html>

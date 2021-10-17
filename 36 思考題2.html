@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 思考題2:
+        var name = 'The Window';
+        var object = {
+            name: 'My Object',
+            getNameFunc: function() {
+                var that = this;
+                return function() {
+                    return that.name;
+                };
+            }
+        };
+        console.log(object.getNameFunc()()); //My Object
+
+        // 這題, 有閉包的發生 匿名函數 訪問了getNameFunc 的變量 that getNameFunc是閉包(被訪問)
+        // object內的name 是屬性, object內getNameFunc內的that 才是變量
+        // 一個是對象內屬性, 一個是函數內變量
+
+        var a = function() {
+            return function() {
+                return this.name;
+            }
+        }
+        console.log(a()());
+
+        // 立即執行函數,匿名函數  都是指向window
+    </script>
+</body>
+
+</html>

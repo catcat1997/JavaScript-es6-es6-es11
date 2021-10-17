@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page-header {
+            font-size: 20px;
+        }
+        
+        .item {
+            border: 1px solid rgb(37, 255, 182);
+            width: 100px;
+            height: 60px;
+            margin: 0 10px 0 0;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="page-header">點擊切換顏色</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+        let items = document.querySelectorAll('.item');
+        // let items = document.getElementsByClassName('item');
+        for (let i = 0; i < items.length; i++) {
+            items[i].onclick = function() {
+                items[i].style.background = 'pink'; // 異步
+            }
+        }
+        // for內 let i 會使 let 分為3個不同的作用域
+        {
+            let i = 0;
+            items[i].onclick = function() {
+                items[i].style.background = 'pink'; // 異步
+            }
+        } {
+            let i = 1;
+            items[i].onclick = function() {
+                items[i].style.background = 'pink'; // 異步
+            }
+        } {
+            let i = 2;
+            items[i].onclick = function() {
+                items[i].style.background = 'pink'; // 異步
+            }
+        }
+    </script>
+</body>
+
+</html>

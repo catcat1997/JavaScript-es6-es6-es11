@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 淺拷貝只是拷貝一層,更深層對象級別的只拷貝引用。
+        // 深拷貝 拷貝多層,每一級別的數據都會拷貝
+
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            }
+        };
+        var o = {};
+        for (var k in obj) {
+            // k = key屬性,  obj[k] = value屬性值
+            // console.log(obj[k]);
+            o[k] = obj[k];
+            // 會自己o.id = obj.id   o.name = obj.name 
+
+            // 更深層對象級別的只拷貝引用(直接拷貝內存地址,沒有開闢新空間拷貝內存地址)
+            //  (shallow copy)
+
+        }
+        console.log(o);
+        o.msg.age = 20;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 創建promise對象
+        const p = new Promise((resolve, reject) => {
+            // resolve('user data XXX');
+            reject('failed to load user data!');
+        });
+        // await要放到async函數內  await如果返回失敗值, 就要用try{} catch(e){}
+        async function main() {
+            try {
+                let result = await p;
+                //
+                console.log(result);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        //調用函數
+        main();
+    </script>
+</body>
+
+</html>

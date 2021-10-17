@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = `
+        <ul>
+            <li>
+                <a>你好朋友</a>
+                <p>上映日期: 1994-09-12</p>
+            </li>
+            <li>
+                <a>你好朋友2</a>
+                <p>上映日期: 1998-09-14</p>
+            </li>
+        </ul>
+        `;
+        // 聲明正則
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg
+
+        // 調用方法
+        const result = str.matchAll(reg);
+        console.log(result); // result有next方法,是一個可疊代對象
+
+        // 1.用for of 編歷 因為它是iterator
+        for (let v of result) {
+            console.log(v);
+        };
+        // 2.用擴展運算符
+        const result2 = str.matchAll(reg);
+        const arr = [...result2];
+        console.log(arr);
+    </script>
+</body>
+
+</html>

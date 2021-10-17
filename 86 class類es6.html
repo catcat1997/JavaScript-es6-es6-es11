@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // es5 實現 phone類
+        // function Phone(brand, price) {
+        //     this.brand = brand;
+        //     this.price = price;
+        // }
+
+        // // 添加方法
+        // Phone.prototype.call = function() {
+        //         console.log(this.brand + '正在打電話');
+        //     }
+        //     // 實例化對象
+        // let apple = new Phone('apple', '3888');
+        // apple.call();
+        // console.log(apple);
+
+        // es6 class 實現 類
+        class Phone {
+            // 構造函數 constructor  名字不能修改
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            };
+            // 方法必須使用這種語法, 不能使用es5的 對象完整形式
+            // 對象完整形式:
+            // call: function(){xxxx}
+            call() {
+                console.log(this.brand + '正在打電話');
+            };
+        }
+        let applePlus = new Phone('apple+', 5000);
+        applePlus.call();
+        console.log(applePlus);
+    </script>
+</body>
+
+</html>

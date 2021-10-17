@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>click</button>
+    <button>click</button>
+    <button>click</button>
+    <script>
+        // 如果有函數我們不需要馬上調用, 又想改變this指向 就用bind
+        // 實戰: 我們有一個button 當點擊了之後, 就禁用3秒
+        // var btn = document.querySelector('button');
+        // btn.onclick = function() {
+        //     this.disabled = true;
+        //     // var that = this;
+        //     setTimeout(function() { // setTimeout的this 指向window   所以我們利用bind()
+        //         // that.disabled = false;
+        //         this.disabled = false;
+        //     }.bind(this), 2000); // 這bind(this) 就指向了btn
+        // }
+        // 利用bind() 解決異步問題
+        var btns = document.querySelectorAll('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                this.disabled = true;
+                setTimeout(function() {
+                    // btns[i].disabled = false; 
+                    // 定時器是異步函數 所以不可行
+                    //  上面這個如果for循環的i 用let i=0 就可行。
+                    this.disabled = false;
+                }.bind(this), 2000);
+            }
+        }
+        // 定時器是異步函數
+
+        // setTimeout無法利用立即執行函數 解決延時異步問題
+    </script>
+</body>
+
+</html>

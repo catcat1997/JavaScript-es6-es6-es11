@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //在對象的內部，使用 Symbol 值定義屬性時，Symbol 值必須放在方括號之中。
+
+        // 聲明一個對象
+        const aclass = {
+            name: 'A班',
+            stus: [
+                '小明',
+                '小花', '小王', 'kimika'
+            ],
+            [Symbol.iterator]() { // 手動設計iterator
+                // 索引變量
+                let index = 0;
+                //
+                let _this = this;
+                return {
+                    next: function() {
+                        if (index < _this.stus.length) {
+                            const result = {
+                                value: _this.stus[index],
+                                done: false // done是 是否結束
+                            };
+                            // 下標自增
+                            index++;
+                            // return結果
+                            return result;
+                        } else {
+                            return {
+                                value: undefined,
+                                done: true
+                            };
+                        }
+
+                    }
+                };
+            }
+        };
+
+        // 目標: 編歷aclass內的數組數據(stus[])
+        // for-of 編歷 (會報錯) 因為對象沒有iterator方法 (我們會在上面手動做一個,做了就能用了)
+        for (let v of aclass) {
+            console.log(v);
+        }
+        // aclass.stus.forEach(); 可以編歷 但不符合 面向對象的思路
+    </script>
+</body>
+
+</html>

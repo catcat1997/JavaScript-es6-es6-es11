@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var reg = /\d/; // [0-9]
+        console.log(reg.test('123'));
+        console.log(reg.test('abc'));
+        console.log(reg.test('abc123'));
+        var reg2 = /\D/; // [^0-9]  0到9之外的
+        console.log(reg2.test('123'));
+        console.log(reg2.test('abc'));
+        console.log(reg2.test('abc123'));
+        // 座機號碼驗證: 兩種格式: 010-12345678 或 0530-1234567
+        // 正則表達的或者符 | 只用一個| 
+        var reg3 = /^\d{3}-\d{8}|\d{4}-\d{7}$/;
+        // var reg3 = /^\d{3,4}-\d{7,8}$/;
+        console.log("`````````````````````````");
+        console.log(reg3.test('053-15624458'));
+        console.log(reg3.test('0-521584781'));
+        console.log(reg3.test('1234-12345678'));
+        console.log(reg3.test('010-12345678'));
+        console.log(reg3.test('1234-1234567'));
+    </script>
+</body>
+
+</html>

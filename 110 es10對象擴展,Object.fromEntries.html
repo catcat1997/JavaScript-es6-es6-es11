@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.fromEntries 二維數組型式創建 (二維數組轉化為對象(類似Map的鍵值對))
+        const result = Object.fromEntries([
+            ['name', 'peter'],
+            ['tpye', 'java,database']
+        ]);
+        console.log(result);
+
+        // Map  (Map轉化為對象)
+        const m = new Map();
+        m.set('name', 'mary');
+        console.log(m);
+        const result2 = Object.fromEntries(m);
+        console.log(result2);
+
+        // Object.entries  ES8  (對象轉化為二維數組)
+        const arr = Object.entries({
+            name: 'john'
+        });
+        console.log(arr);
+    </script>
+</body>
+
+</html>

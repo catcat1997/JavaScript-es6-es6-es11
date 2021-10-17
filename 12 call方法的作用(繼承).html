@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // call方法
+        function fn1(x, y) {
+            console.log("---------------");
+            console.log('你好fn1');
+            console.log(this);
+            console.log(x + y);
+        }
+        var o = {
+            name: 'andy'
+        };
+        // fn1(1,2); 正常調用
+        // 1. call 可以調用函數
+        fn1.call();
+        // 2. call 可以改變這個函數的this指向
+        fn1.call(o, 1, 2);
+
+        // call 第一個參數是 Argthis 指向什麼
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // async函數 (在function前加上async)  返回值強制為promise
+        async function fn1() {
+            // return '我是返回';
+            // 在async中 1.只要返回的不是promise對象 就會返回一個 成功status的promise
+
+            // 2.如果throw一個錯誤 就會返回失敗status的promise
+            // throw new Error('failed la!');
+
+            // 3.返回結果是一個promise對象
+            return new Promise((resolve, reject) => {
+                // resolve('成功的數據');
+                reject('失敗的數據');
+            });
+        };
+        const result = fn1();
+        console.log(result);
+
+        // 調用 Promise.then方法
+        result.then(value => {
+            console.log(value);
+        }, reason => {
+            console.warn(reason);
+        });
+    </script>
+</body>
+
+</html>

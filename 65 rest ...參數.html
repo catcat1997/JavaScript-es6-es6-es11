@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //es6 引入rest參數, 用於獲取函數的實參, 用來代替 arguments
+
+        // es5 獲取實參方式
+        function date() {
+            console.log(arguments);
+        }
+        date('小白', '阿花');
+        // arguments 輸出對象
+
+        // es6 rest參數
+        function date2(a, b, ...args) {
+            console.log(a);
+            console.log(b);
+            console.log(args);
+        }
+        date2('a', 'b', '小明', '花子', '小妝');
+        // rest 輸出數組
+        // 我們可以用數組方法, filter some every map
+
+        // rest參數,必須放到參數最後
+    </script>
+</body>
+
+</html>

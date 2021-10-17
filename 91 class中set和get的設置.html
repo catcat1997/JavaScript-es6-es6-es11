@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // get和set
+        class Phone {
+            get price() {
+                console.log('價格屬性被讀取了');
+                return 'iloveyou';
+            }
+            set price(newValue) { // setter要有參數 以便VScode區分
+                console.log('價格被修改了');
+            }
+        }
+        // 實例化對象
+        let s = new Phone();
+        console.log('--------------');
+        console.log(s);
+        console.log('--------------');
+        console.log(s.price);
+        console.log('--------------');
+        s.price = 'free';
+    </script>
+</body>
+
+</html>

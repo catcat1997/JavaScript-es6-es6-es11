@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            id: 1,
+            name: 'andy',
+            msg: {
+                age: 18
+            }
+        };
+        var o = {};
+
+        Object.assign(o, obj);
+        // 這方法一級屬性時深拷貝, 由二級屬性開始就淺拷貝
+        console.log(o);
+        o.msg.age = 30;
+        console.log(obj);
+    </script>
+</body>
+
+</html>

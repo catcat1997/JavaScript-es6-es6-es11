@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const school = {
+            name: 'myschool',
+            cities: ['HK', 'CN', 'AM'],
+            type: ['forntend', 'Java', 'database', 'backend']
+        };
+        // 獲取對象所有的key(鍵)
+        console.log(Object.keys(school));
+
+        // Object.values() 方法,返回一個給定對象的所有可枚舉屬性值的數組
+        // 獲取對象所有的value(值)
+        console.log(Object.values(school));
+
+        // Object.entries() 方法,返回一個給定對象自身可編歷屬性[key,value]的數組 (數組內數組)
+        console.log(Object.entries(school));
+        // 可以把entries放到Map內
+        const m = new Map(Object.entries(school));
+        console.log(m);
+        console.log(m.get('name'));
+        console.log(m.get('cities'));
+        console.log(m.get('type'));
+
+        // Object.getOwnPropertyDescription
+        console.log("Object.getOwnPropertyDescriptors");
+        console.log(Object.getOwnPropertyDescriptors(school));
+    </script>
+</body>
+
+</html>

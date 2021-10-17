@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .right {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" class="uname"> <span class="span1"></span>
+    <input type="text" class="uname2"> <span class="span2"></span>
+    <script>
+        var reg = /^(13[0-9]|14[5|7]|15[0-9]|18[0-9])\d{8}$/; //手機號碼
+        var regEmail = /^[a-zA-z0-9_-]{1,}@gmail.com$/;
+        var input = document.querySelector('.uname');
+        var input2 = document.querySelector('.uname2');
+        var span = document.querySelector('.span1');
+        var span2 = document.querySelector('.span2');
+        input.onblur = function() {
+            if (reg.test(this.value)) {
+                span.className = "right";
+                span.innerHTML = '輸入正確';
+            } else {
+                span.className = 'wrong';
+                span.innerHTML = '輸入格式錯誤';
+            }
+        };
+        input2.onblur = function() {
+            if (regEmail.test(this.value)) {
+                span2.className = "right";
+                span2.innerHTML = '輸入正確';
+            } else {
+                span2.className = 'wrong';
+                span2.innerHTML = '輸入格式錯誤';
+            }
+        };
+    </script>
+</body>
+
+</html>

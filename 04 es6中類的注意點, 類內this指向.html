@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button>點</button>
+    <script>
+        //我們在全局區開了一個that變量, 而且給that賦了that = this;
+        var that;
+        // 1.es6中 類沒有變量提升, 所有必須先定義類, 才能通過類 實例化對象  (類的定義要放在最上面)
+        // 2.類里面的共有屬性和共有方法一定要加this使用.
+        class Star {
+            constructor(uname, age) {
+                that = this;
+                this.uname = uname;
+                this.age = age;
+                // this.sing();
+                this.btn = document.querySelector('button');
+                // this.btn.onclick = this.sing; // sing不要加()  sing()是立即調用
+                this.btn.onclick = this.sing;
+            }
+            sing() {
+                    console.log(that.uname + "sing");
+                    // that里面存儲的是constructor里面的this
+                    console.log(this); // 類中的方法的this會指向 它的調用者   btn沒有uname這個屬性 所以this.uname不可行
+                }
+                // constructor 里面的this 指向實例對象, 方法里面的this 指向 這個方法的調用者
+
+        }
+        var star1 = new Star('peter', 23);
+        // 類內的this指向 實例對象
+        console.log(that === star1); // true
+        // star1.sing();
+
+        // 總結:
+        // 1.es6中 類沒有變量提升, 所有必須先定義類, 才能通過類 實例化對象  (類的定義要放在最上面)
+        // 2.類里面的共有屬性和共有方法一定要加this使用.
+        // 3.constructor 里面的this 指向實例對象,  ***方法里面的this 指向 這個方法的調用者***
+    </script>
+</body>
+
+</html>

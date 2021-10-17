@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6允許按照一定模式 從數組和對象中提取值, 對變量進行賦值, 這被稱為 解構賦值
+        // 1.數組的解構
+        const F4 = ['a', 'b', 'c', 'd'];
+        let [one, two, three, four] = F4;
+        console.log(one);
+        console.log(two);
+        console.log(three);
+        console.log(four);
+        // 2.對象的解構
+        const bigboy = {
+            uname: 'Timmy',
+            age: '22',
+            fire: function() {
+                console.log('shooting with MK74' + this);
+            }
+        };
+        let {
+            uname,
+            age,
+            fire
+        } = bigboy;
+        console.log(uname);
+        console.log(age);
+        console.log(fire);
+        bigboy.fire();
+        fire(); // 解構後 由bigboy.fire() 變成 window.fire() 也可以調用方法了
+    </script>
+</body>
+
+</html>

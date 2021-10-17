@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  遞歸函數 函數內部自己調用自己 
+        var num = 1;
+
+        function fn() {
+            console.log('打印6次');
+            if (num == 6) {
+                return;
+            }
+            num++;
+            fn();
+        }
+        fn();
+    </script>
+</body>
+
+</html>

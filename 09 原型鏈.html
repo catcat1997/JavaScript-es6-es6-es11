@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+
+        }
+        Star.prototype.sing = function() {
+            console.log('唱歌');
+        }
+        var peter = new Star("peter", 18);
+        var mary = new Star("mary", 24);
+
+        // 1. 只要是對象就有__proto__ 原型, 指向原型對象prototype
+        console.log(Star.prototype);
+        //  brower中的 [[prototype]] 就是__proto__  
+        console.log(Star.prototype.__proto__ === Object.prototype);
+        // 2. 以上可得出 Star原型對象prototype里面的__proto__ 指向的是 Object.prototype
+        // Object就是所有類的父類  上面沒有了
+        console.log(Object.prototype.__proto__);
+        // Object.prototype.__proto__指向null  Object就是所有類的父類, 上面沒有了
+
+        // 對象成員查找規則
+        peter.sex = '男';
+        console.log(peter.sex);
+        console.log('**************');
+        // Star.prototype.sex = '女';
+        console.log(peter.sex);
+        console.log(mary.sex);
+        console.log('**************');
+        Object.prototype.sex = "obj女";
+        console.log(peter.sex);
+        console.log(mary.sex);
+        console.log('**************');
+        console.log(mary.toString());
+        console.log(mary.age);
+        console.log(mary.age.toString());
+        // 
+        console.log('**************');
+        console.log(peter.__proto__);
+        console.log(Star.prototype.__proto__);
+    </script>
+</body>
+
+</html>

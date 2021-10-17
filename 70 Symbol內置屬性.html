@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            static[Symbol.hasInstance](param) {
+                console.log(param);
+                console.log('我被用來檢測類型的');
+                return true;
+            }
+        }
+        let o = {};
+        console.log(o instanceof Person);
+
+        // 2
+        const arr = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        arr2[Symbol.isConcatSpreadable] = false;
+        // Symbol.isConcatSpreadable 控制concat數組可不可以展開
+        console.log(arr.concat(arr2));
+    </script>
+</body>
+
+</html>

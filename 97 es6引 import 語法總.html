@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- // 1.通用引入語法 // import * as m2 from "./96_m2.js"; // 2.解構賦值形式 // -->
+    <!--3. 簡便型的import 只能用於 export default{xxx} 
+        import m3 from './96_m3.js';
+        console.log(m3); -->
+    <script type="module">
+
+        import { school, teach } from './95_m1.js'; import { school as school2, teach as teach2} from './96_m2.js'; console.log(school); console.log(school2); console.log(teach); console.log(teach2); import {default as m3} from './96_m3.js'; console.log(m3);
+    </script>
+    <!-- <script>
+        import m3 from './96_m3.js';
+        console.log(m3);
+    </script> -->
+</body>
+
+</html>

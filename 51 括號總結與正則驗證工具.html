@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 中括號 字符集合,匹配中括號內任意字符
+        var reg = /^[abc!]$/;
+        // 可以是單個 ! 或 a 或 b 或 c 
+        // 大括號 量詞符,里面表示重複次數
+        var reg2 = /^abc{3}$/;
+        // 這樣寫,只有c可以重複3次 而沒有中括號 精確匹配abccc
+        console.log(reg2.test('a'));
+        console.log(reg2.test('b'));
+        console.log(reg2.test('ccc'));
+        console.log(reg2.test('abc'));
+        console.log(reg2.test('abcabcabc'));
+        console.log(reg2.test('abccc'));
+        // 小括號 表示優先級
+        var reg3 = /^(abc){3}$/;
+        // 精確匹配 abc重複3次 abcabcabc
+        console.log('~~~~~~~~~~~');
+        console.log(reg3.test('abc'));
+        console.log(reg3.test('abcabcabc'));
+        console.log(reg3.test('abccc'));
+    </script>
+</body>
+
+</html>

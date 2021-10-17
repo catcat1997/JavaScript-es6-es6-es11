@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成器是一個特殊函數 function*
+        // yield 為 函數代碼的分隔符
+        function* gen() {
+            console.log(111);
+            yield '一隻小鳥';
+            console.log(222);
+            yield '一隻沒有尾';
+            console.log(333);
+            yield '真奇怪';
+            console.log(444);
+        }
+        let iterator = gen();
+        console.log(iterator);
+        // generator內有next方法
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+        console.log(iterator.next())
+
+        console.log('----------------------------------');
+        // for of 編歷
+        for (let v of gen()) {
+            console.log(v);
+        }
+    </script>
+</body>
+
+</html>

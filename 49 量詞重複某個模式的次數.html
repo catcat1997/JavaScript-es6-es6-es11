@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 量詞是設定某個模式出現的次數
+        var reg = /^[a-zA-Z0-9_-]$/; // 這個用戶只能輸入英文字母 數字 下划線 短橫線 但是有邊界符和[] 這就限定了只能選一個
+        console.log(reg.test('a'));
+        console.log(reg.test('8'));
+        console.log(reg.test('18'));
+        console.log(reg.test('a1'));
+
+        var reg2 = /^[a-zA-Z0-9_-]{6,16}$/;
+        console.log(reg2.test('a153Sd'));
+        console.log(reg2.test('8dsfv1'));
+        console.log(reg2.test('18_----__'));
+        console.log(reg2.test('a1sdfdf3SDFSDFS!'));
+    </script>
+</body>
+
+</html>

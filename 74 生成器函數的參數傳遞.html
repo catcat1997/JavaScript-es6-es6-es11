@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 聲明一個生成器函數
+        function* gen(arg) {
+            console.log(arg);
+            let one = yield 111;
+            console.log(one);
+            let two = yield 222;
+            console.log(two);
+            let three = yield 333;
+            console.log(three);
+        }
+
+        // 執行獲取疊代器對象
+        let iterator = gen('AAA');
+        // 第一個next 由頭跑到 第一個yield(會跑第一個yield)
+        console.log(iterator.next());
+        // next方法,可以傳入實參  
+        // 第二個next 由第一個yield之後的一行 跑到第二個yield(會跑第二個yield)  實參傳到第一個yield內
+        console.log(iterator.next('BBB'));
+        console.log(iterator.next('CCC'));
+        console.log(iterator.next('DDD'));
+
+        // 生成器函數可以傳參, next方法也可以傳參
+    </script>
+</body>
+
+</html>

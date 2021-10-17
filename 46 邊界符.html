@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 邊界符 ^ $
+        var rg = /abc/;
+        //  /abc/ 只要包含abc 就返回true
+        // 正則表達式不需要加引號, 不管 是數字型還是字符串型
+        console.log(rg.test('aabcd'));
+        console.log(`-------------------`);
+        var rg2 = /^abc/;
+        console.log(rg2.test('abcd'));
+        console.log(rg2.test('aabcd')); // false 沒有以abc開頭
+        console.log(`-------------------`);
+        var rg3 = /^abc$/;
+        // 精確匹配 要求必須是 abc字符串才符合規範
+        console.log(rg3.test('abc')); //true
+        console.log(rg3.test('abcd')); //false
+        console.log(rg3.test('aabcd')); //false
+        console.log(rg3.test('abcabc')); //false 這個以abcabc開頭 以abcabc結尾 所以false
+        console.log(`-------------------`);
+        var rg4 = /abc$/;
+        console.log(rg4.test('abc')); //t
+        console.log(rg4.test('aabc')); //t
+        console.log(rg4.test('abcdd')); //f
+    </script>
+</body>
+
+</html>

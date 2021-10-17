@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr1 = ['peter', 'john', 'marry', 'annie'];
+        // for-in
+        for (let k in arr1) {
+            console.log(k);
+            console.log(arr1[k]);
+        }
+        // 使用for...of
+        console.log(`-------------for of`);
+        for (let v of arr1) {
+            console.log(v);
+
+        }
+        console.log(arr1);
+        // arr1內會有 Symbol(Symbol.iterator): ƒ values()
+
+        // iterator
+        // 在對象的內部，使用 Symbol 值定義屬性時，Symbol 值必須放在方括號之中。
+        let iterator = arr1[Symbol.iterator]();
+        //調用iterator對象的next方法
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+        console.log(iterator.next());
+    </script>
+</body>
+
+</html>

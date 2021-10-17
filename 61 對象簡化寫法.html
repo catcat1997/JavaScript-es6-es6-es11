@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6允許在大括號里面, 直接寫入變量和函數, 作為對象的屬性和方法, 這種寫法更加簡潔
+        let uname = 'peter';
+        let change = function() {
+            console.log('i can change you!');
+        };
+        const SCHOOL = {
+            uname,
+            change,
+            improve() {
+                console.log('新function寫法');
+            }
+        }
+        console.log(SCHOOL);
+    </script>
+</body>
+
+</html>

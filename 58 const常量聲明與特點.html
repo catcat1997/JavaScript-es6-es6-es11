@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const 一定要初始化
+        const SCHOOL = 'schoolABC';
+        // const 用大寫(規範)
+        console.log(SCHOOL);
+        // SCHOOL = 'gg';
+        // 4.塊級作用域
+        {
+            const PLAYER = 'UZI';
+        }
+        // console.log(PLAYER);
+        // 5.對於數組和對象的元素修改, 不算做對常量的修改, 不會報錯
+        const TEAM = ['a', 'b', 'c'];
+        console.log(TEAM);
+        TEAM.push('d');
+        console.log(TEAM);
+        // TEAM[0] = 'g'; 不會報錯,但不正確操作
+        console.log(TEAM);
+        // TEAM = 100; 報錯
+        console.log(TEAM);
+
+        // const 對象和數組保存的是內存地址(對象和數組內的元素改變了,但地址沒變 所以沒有報錯)
+        // 引用的地址值 地址值沒變
+    </script>
+</body>
+
+</html>

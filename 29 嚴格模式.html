@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 為整個腳本開啟 strict mode -->
+    <script>
+        'use strict';
+        console.log('strict mode');
+    </script>
+    <script>
+        (function() {
+            'use strict';
+            var num = 10;
+
+            function fn() {
+
+            }
+        })();
+    </script>
+    <!-- 為某個函數開啟 strict mode -->
+    <script>
+        function fn1() {
+            'use strict';
+            console.log('只會在fn1開啟strict mode');
+        }
+
+        function fn2() {
+
+        }
+    </script>
+</body>
+
+</html>

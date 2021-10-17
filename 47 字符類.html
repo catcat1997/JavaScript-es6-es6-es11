@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var rg = /[abc]/;
+        console.log(rg.test('baby')); // true
+        console.log(rg.test('red')); // false
+        console.log(rg.test('color')); // true 
+        console.log(`---------------------------`);
+        var rg2 = /^[abc]$/; // 精確匹配 三選一 只能是a或b或c
+        console.log(rg2.test('a'));
+        console.log(rg2.test('abc'));
+        console.log(rg2.test('cc'));
+        console.log(`---------------------------`);
+        var rg3 = /^[a-z]$/; // 精確匹配 a到z 其中一個  (but only lower case)
+        console.log(rg3.test('s'));
+        console.log(rg3.test('A'));
+        console.log(rg3.test('1'));
+        console.log(rg3.test('sa'));
+        console.log(`---------------------------`);
+        var rg4 = /^[a-zA-Z0-9_-]$/; // 精確匹配 大小寫a-z都可以,0到9都可以, _和- 都可以 但只能是單個
+        console.log(rg4.test('A'));
+        console.log(rg4.test('g'));
+        console.log(rg4.test('Aa'));
+        console.log(rg4.test('ZZ'));
+        console.log(rg4.test('0'));
+        console.log(rg4.test('55'));
+        console.log(rg4.test('_'));
+        console.log(rg4.test('-'));
+        console.log(rg4.test('-_'));
+        console.log(rg4.test('!'));
+        console.log(`---------------------------`);
+        // 中括號內^ 表示取反
+        var rg5 = /^[^a-zA-Z0-9_-]$/; // 不能夠包含a-zA-z0-9和_和- 而且精確到只能是一個字符
+
+        console.log(rg5.test('A'));
+        console.log(rg5.test('g'));
+        console.log(rg5.test('!!')); // false
+        console.log(rg5.test('ZZ'));
+        console.log(rg5.test('0'));
+        console.log(rg5.test('55'));
+        console.log(rg5.test('_'));
+        console.log(rg5.test('-'));
+        console.log(rg5.test('-_'));
+        console.log(rg5.test('!'));
+    </script>
+</body>
+
+</html>

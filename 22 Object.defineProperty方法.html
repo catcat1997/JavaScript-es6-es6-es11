@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.defineProperty() 定義新屬性或修改原有的屬性
+        var data = {
+            id: 1,
+            pname: 'apple',
+            price: 1999
+        };
+        // 1.以前新增對象屬性/修改對象屬性的 方法
+        // data.num = 1000;
+        // data.price = 80;
+        // console.log(data);
+
+        // 2.Object.defineProperty() 
+        Object.defineProperty(data, 'num', {
+            value: 1000,
+            enumerable: true,
+        });
+        Object.defineProperty(data, 'price', {
+            value: 80,
+        });
+        Object.defineProperty(data, 'id', {
+            writable: false,
+            // writable: true,
+            // value: 200
+        });
+
+        Object.defineProperty(data, 'address', {
+            value: '山東',
+            writable: false,
+            // enumerable: false, 默認false
+            enumerable: true,
+            //  configurable 默認false  不可修改 不可刪除
+            configurable: true,
+        });
+        console.log(data);
+        console.log(Object.keys(data));
+        delete data.address;
+        data.address = 'abc';
+        console.log(data);
+    </script>
+</body>
+
+</html>

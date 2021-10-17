@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 'use strict';
+        // 閉包(closure)指 有權訪問另一個函數作用域中變量的函數。
+        // fn 就是閉包函數 fn有權被fn2訪問
+        function fn() {
+            var num = 10;
+
+            function fn2() {
+                console.log(num);
+            }
+            return fn2;
+        }
+        var f = fn();
+        f();
+        // 類似於
+        // var f = function fn2() {
+        //     console.log(num);
+        // }
+    </script>
+</body>
+
+</html>

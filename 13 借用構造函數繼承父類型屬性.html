@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 借用父構造函數繼承屬性
+        // 1.父構造函數
+        function Father(uname, age) {
+            // this指向父構造函數的對象實例
+            this.uname = uname;
+            this.age = age;
+
+        }
+        // 2.子構造函數
+        function Son(uname, age, score) {
+            // this指向子構造函數的對象實例
+            Father.call(this, uname, age);
+            this.score = score;
+        }
+        var son = new Son('peter', 18, 100);
+        console.log(son);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 0.Number.EPSILON是javascript的最小精度
+        // EPSILON 屬性的值接近於2.2204460............E-16
+        console.log(0.1 + 0.2 === 0.3); // false
+        function equal(a, b) {
+            if (Math.abs(a - b) < Number.EPSILON) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(equal(0.1 + 0.2, 0.3));
+        // 1. 二進制與八進制
+        let b = 0b1010; // 二進
+        let o = 0o777; // 八進
+        let x = 0xff; //十六進
+        console.log(b);
+        console.log(o);
+        console.log(x);
+
+        // 2.Number.isFinite 檢測一個數值是否為有限數
+        console.log(Number.isFinite(100));
+        console.log(Number.isFinite(100 / 0));
+        console.log(Number.isFinite(Infinity));
+        // 3.Number.isNaN 檢測一個數是否為NaN
+        console.log(Number.isNaN(123));
+        console.log(Number.isNaN('a'));
+        // 4.Number.parseInt Number.parseFloat字符串轉整數
+        console.log(Number.parseInt('521.6'));
+        console.log(Number.parseInt('523iloveyou'));
+        console.log(Number.parseFloat('521.2'));
+        // 5.Number.isInteger 檢測一個數是不是整數
+        console.log(Number.isInteger(5));
+        console.log(Number.isInteger(2.5));
+        // 6.Math.trunc 將數字的小數部分去除  (各下取整) 同Math.floor
+        console.log(Math.trunc(3.6));
+        console.log(Math.floor(3.6));
+        // 7.Math.sign 判斷一個數為 正數 負數 或0
+        console.log(Math.sign(100)); // 正數返回1
+        console.log(Math.sign(0)); // 0返回0
+        console.log(Math.sign(-100)); // 負數返回-1
+    </script>
+</body>
+
+</html>

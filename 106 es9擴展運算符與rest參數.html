@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Rest參數與 spread 擴展運算符在 es6中已經引入, 不過 es6中只針對於數組,
+        在es9中為對象提供了像數組一樣的rest參數和 擴展運算符 -->
+    <script>
+        // function connect({
+        //     host,
+        //     port,
+        //     username,
+        //     password
+        // }) {
+        //     console.log(host);
+        //     console.log(port);
+        //     console.log(username);
+        //     console.log(password);
+        // }
+        function connect2({
+            host,
+            port,
+            ...user // ...user , 之後的connect2參數的對象屬性都放在這里面
+        }) {
+            console.log(host);
+            console.log(port);
+            console.log(user);
+
+        }
+        // connect({
+        //     host: '127.0.0.1',
+        //     port: 3306,
+        //     username: 'root',
+        //     password: 'root'
+        // });
+        connect2({
+            host: '127.0.0.1',
+            port: 3306,
+            username: 'root',
+            password: 'root',
+            type: 'master'
+        });
+
+        // const skillOne = {
+        //     q:'天音波',
+        //     w:'金鍾罩'
+        // };
+        // ...skillOne => q:'天音波',w:'金鍾罩'
+        const skill1 = {
+            q: '天音波'
+        }
+        const skill2 = {
+            w: '金鍾罩'
+        }
+        const skill3 = {
+            e: '拍地'
+        }
+        const skill4 = {
+            r: 'iku'
+        }
+
+        // 對象的合并
+        const hero = {...skill1,
+            ...skill2,
+            ...skill3,
+            ...skill4
+        }
+        console.log(hero);
+    </script>
+</body>
+
+</html>

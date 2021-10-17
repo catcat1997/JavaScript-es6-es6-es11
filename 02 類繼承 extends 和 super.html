@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 類的繼承 extends
+        class Father {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            money() {
+                console.log(100);
+            }
+            sum() {
+                console.log(this.x + this.y);
+            }
+        }
+        // 子類繼承用extends 子類不用寫在父類內
+        class Son extends Father {
+            constructor(x, y) {
+                super(x, y); // 調用了父類中的構造函數
+            }
+        }
+        var son1 = new Son(1, 2);
+        var son2 = new Son(11, 22);
+        son1.money();
+        // super 用於訪問和調用對象父類上的函數, 可調用父類的構造函數,也可以調用父類的普通函數
+        son1.sum();
+        son2.sum();
+    </script>
+</body>
+
+</html>

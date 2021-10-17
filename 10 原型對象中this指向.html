@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var that;
+
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+        }
+
+        Star.prototype.sing = function() {
+            console.log('sing');
+            that = this;
+        }
+        Star.prototype.sing2 = function() {
+            console.log('sing2');
+            that = this;
+        }
+        var ldh = new Star('ldh', 25);
+        // 1. 在構造函數中, 里面this指向的是對象實例
+        ldh.sing();
+        // 證明 2. 原型對象函數里面的this 指向的是 實例對象 ldh
+        console.log(ldh === that);
+    </script>
+</body>
+
+</html>
